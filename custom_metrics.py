@@ -1,4 +1,4 @@
-# UMAP supports custom user defined metrics as long as those metrics can be compiled in nopython mode by numba. For this notebook we will be looking at such custom metrics. To define such metrics we'll need numba ...
+# UMAP supports custom user defined metrics as long as those metrics can be compiled in nopython mode by numba
 
 import numba
 import numpy as np
@@ -9,7 +9,7 @@ import numpy as np
 def red_channel_dist(a,b):
     return np.abs(a[0] - b[0])
 
-# To get more adventurous it will be useful to have some colorspace conversion -- to keep things simple we'll just use HSL formulas to extract the hue, saturation, and lightness from an (R,G,B) tuple.
+# Now we'll define other colorspace distance metrics. We'll just use HSL formulas to extract hue, saturation, and lightness from an (R,G,B) tuple.
 
 @numba.njit()
 def hue(r, g, b):
@@ -40,7 +40,7 @@ def saturation(r, g, b):
     else:
         return chroma / (1 - abs(2*light - 1))
     
-# With that in hand we can define three extra distances. The first simply measures the difference in hue, the second measures the euclidean distance in a combined saturation and lightness space, while the third measures distance in the full HSL space.
+# Now we can define three extra distances. The first simply measures the difference in hue, the second measures the euclidean distance in a combined saturation and lightness space, while the third measures distance in the full HSL space.
 
 @numba.njit()
 def hue_dist(a, b):

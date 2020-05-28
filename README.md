@@ -1,2 +1,2 @@
-# UMAP
-Test out visualizations with UMap - https://github.com/lmcinnes/umap
+# Dimensionality Reduction
+The purpose of the "Visualization" notebook is to build intuition of how different dimensionality techniques perform on different data. We generate and import various datasets, apply common dimensionality reduction techniques and visually compare how they perform in 2D. 
